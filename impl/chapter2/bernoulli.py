@@ -3,7 +3,7 @@ import numpy as np
 from .distribution import Distribution
 
 
-class BernoulliDist(Distribution):
+class BernoulliDistribution(Distribution):
 
     def __init__(self, prob):
         if 0 < prob < 1:

@@ -1,4 +1,4 @@
-from .bernoulli import BernoulliDist
+from .bernoulli import BernoulliDistribution
 
 __all__ = [
     BernoulliDist,
