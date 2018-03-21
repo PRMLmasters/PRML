@@ -6,17 +6,17 @@ Python >= 3.6
 
 # Setup
 
-### git hook
-```
-$ flake8 --install-hook git
-```
-
 ### pip
 
 ```
 pip install -r requirements.txt
 ```
 
+### git hook
+
+```
+$ flake8 --install-hook git
+```
 
 # Author
 - [yasudadesu](https://github.com/yasudadesu)  
