@@ -16,7 +16,7 @@ class BernoulliDistribution(Distribution):
         return np.random.choice([1, 0], p=weight)
 
     def expected_value(self):
-        return self
+        return 'hoge'
 
     def variance(self):
         pass
