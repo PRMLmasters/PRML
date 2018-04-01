@@ -1,22 +1,26 @@
 import numpy as np
 
-from .distribution import Distribution
+from .distribution import DiscreteDistribution
 
 
-class BernoulliDistribution(Distribution):
+class BernoulliDistribution(DiscreteDistribution):
 
     def __init__(self, prob):
-        if 0 < prob < 1:
-            self.prob = prob
-        else:
-            print('0 < probability < 1')
+        super(BernoulliDistribution, self).__init__(prob)
+        self.prob = {
+            0: 1 - prob,
+            1: prob,
+        }
 
     def trial(self):
-        weight = [self.prob, 1 - self.prob]
-        return np.random.choice([1, 0], p=weight)
+        return np.random.choice(list(self.prob.keys()),
+                                p=list(self.prob.values()))
 
+    @property
     def expected_value(self):
-        return 'hoge'
+        return sum([value * prob for value, prob in self.prob.items()])
 
+    @property
     def variance(self):
-        pass
+        e_x_2 = sum([value**2 * prob for value, prob in self.prob.items()])
+        return e_x_2 - self.expected_value**2
