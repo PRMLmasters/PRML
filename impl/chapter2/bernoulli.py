@@ -5,11 +5,11 @@ from .distribution import DiscreteDistribution
 
 class BernoulliDistribution(DiscreteDistribution):
 
-    def __init__(self, prob):
-        super(BernoulliDistribution, self).__init__(prob)
+    def __init__(self, mu):
+        super(BernoulliDistribution, self).__init__(mu)
         self.prob = {
-            0: 1 - prob,
-            1: prob,
+            0: 1 - mu,
+            1: mu,
         }
 
     def trial(self):
