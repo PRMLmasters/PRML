@@ -5,7 +5,7 @@ from .distribution import DiscreteDistribution
 
 class BernoulliDistribution(DiscreteDistribution):
 
-    def __init__(self, probs):
+    def __init__(self, prob):
         super(BernoulliDistribution, self).__init__(prob,1-prob)
         self.prob = {
             0: 1 - prob,
