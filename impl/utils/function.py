@@ -35,7 +35,7 @@ def comb(n, r):
     if n < r or n < 0:
         return 0
 
-    comb_n = [0 for i in range(r+1)]
+    comb_n = [0] * (r+1)
     comb_n[0] = 1
     for i in range(r):
         comb_n[i+1] = comb_n[i] * (n - i) / (i + 1)
