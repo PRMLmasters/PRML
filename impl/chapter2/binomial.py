@@ -1,6 +1,6 @@
 import numpy as np
 
-from ..utils.function.py import comb
+from ..utils.function import comb
 from .bernoulli import BernoulliDistribution
 
 
@@ -28,5 +28,4 @@ class BinomialDistribution(BernoulliDistribution):
 
         """
 
-        comb_n_m = comb(self.n, m)
-        return comb_n_m * (self.mu ** m) * ((1 - self.mu) ** (self.n - m))
+        return comb(self.n, m) * (self.mu ** m) * ((1 - self.mu) ** (self.n - m))
