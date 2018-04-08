@@ -23,7 +23,7 @@ class BinomialDistribution(BernoulliDistribution):
         return self.n * self.prob[1] * self.prob[0]
 
     def probability(self, m):
-        """The probability of m times of 1 in n times.
+        """The probability of getting m times of 1 in n times.
            This is known as Bin(m|n, mu).
 
         """
