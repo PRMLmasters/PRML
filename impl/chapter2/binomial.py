@@ -28,5 +28,5 @@ class BinomialDistribution(BernoulliDistribution):
 
         """
 
-        comb_n_r = comb(self.n, m)
-        return comb * (self.mu ** m) * ((1 - self.mu) ** (self.n - m))
+        comb_n_m = comb(self.n, m)
+        return comb_n_m * (self.mu ** m) * ((1 - self.mu) ** (self.n - m))
