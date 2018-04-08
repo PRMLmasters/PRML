@@ -30,10 +30,11 @@ def comb(n, r):
 
     """
 
-    assert isinstance(n, int), "n and r should be natural numbers"
-    assert isinstance(r, int), "n and r should be natural numbers"
-    if n < r or n < 0:
-        return 0
+    assert isinstance(n, int), "n should be natural numbers."
+    assert isinstance(r, int), "r should be natural numbers."
+    assert n >= r, "n should be larger than r."
+    assert n > 0, "n should be larger than 0"
+    assert r >= 0, "r should be larger than or equal to 0"
 
     comb_n = [0] * (r+1)
     comb_n[0] = 1
