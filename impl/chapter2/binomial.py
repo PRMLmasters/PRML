@@ -16,7 +16,7 @@ class BinomialDistribution(BernoulliDistribution):
 
     @property
     def expected_value(self):
-        return self.n_trials * prob[1]
+        return self.n_trials * self.prob[1]
 
     @property
     def variance(self):
