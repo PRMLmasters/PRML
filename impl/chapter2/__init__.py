@@ -1,5 +1,12 @@
-from .bernoulli import BernoulliDistribution
+from . import (
+    bernoulli,
+    binomial,
+    distribution,
+)
+
 
 __all__ = [
-    BernoulliDistribution,
+    bernoulli,
+    binomial,
+    distribution,
 ]
