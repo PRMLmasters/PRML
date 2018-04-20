@@ -7,7 +7,7 @@ from .bernoulli import BernoulliDistribution
 class BinomialDistribution(BernoulliDistribution):
 
     def __init__(self, mu, n_trials):
-        super(BernoulliDistribution, self).__init__(mu)
+        super(BinomialDistribution, self).__init__(mu)
         self.n_trials = n_trials
 
     def trial(self):
@@ -28,4 +28,4 @@ class BinomialDistribution(BernoulliDistribution):
 
         """
 
-        return function.comb(self.n_trials, m) * (self.mu ** m) * ((1 - self.mu) ** (self.n_trials - m))
+        return function.comb(self.n_trials, m) * (self.prob[1] ** m) * (self.prob[0] ** (self.n_trials - m))
