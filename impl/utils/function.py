@@ -2,6 +2,8 @@ import numpy as np
 import functools
 
 def integral(_func, start, end, n_split=500, args=None):
+    start = _limit_inf(start)
+    end = _limit_inf(end)
     interval = (end - start) / n_split
     args = () if args is None else args
     return sum([_func(i, *args) * interval for i in np.linspace(
@@ -9,11 +11,11 @@ def integral(_func, start, end, n_split=500, args=None):
 
 
 # 範囲の引数が無限の時に,有限の値になるように制限
-def _limit_inf(n_bound, limit=1000):
-    if not np.isinf(num):
-        return num
+def _limit_inf(num_bound, limit=1000):
+    if not np.isinf(num_bound):
+        return num_bound
     else:
-        return limit if num > 0 else -limit
+        return limit if num_bound > 0 else -limit
 
 
 # ほぼscipyの実装通り
@@ -26,18 +28,20 @@ def n_dimension_integral(_func, ranges, n_split=500, args=None):
     n_split : int number of splits of range
     """
     ranges = [_RangeProcessing(_range) for _range in ranges]
-    depth = len(ranges)
     args = () if args is None else args
-    return _NQuad(_func, ranges).integral(*args)
+    return _NQuad(_func, ranges, n_split).integral(*args)
 
 
 class _NQuad:
+    """
+    class for recursive integration of function
+    """
 
-    def __init__(self, _func, _ranges, _n_split=500):
+    def __init__(self, _func, ranges, n_split=500):
         self.func = _func
-        self.ranges = _ranges
-        self.max_depth = len(_ranges)
-        self.n_split = _n_split
+        self.ranges = ranges
+        self.max_depth = len(ranges)
+        self.n_split = n_split
 
     def integral(self, *args, **kwargs):
         depth = kwargs.pop("depth", 0)
